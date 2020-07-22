@@ -1,12 +1,15 @@
-// Миксин на адаптивный шрифт 
-$maxWidth : 1560;
-@mixin adaptiv-font($pcSize,$mobSize){
-	$addSize: $pcSize - $mobSize;
-	$addMobSize: $addSize + $addSize * 0.7;
-	@media (max-width: 780px){
+// Миксин на адаптивный шрифт
+$maxWidth: 1560;
+@mixin adaptiv-font($pcSize, $mobSize) {
+   $addSize: $pcSize - $mobSize;
+   $addMobSize: $addSize + $addSize * 0.7;
+   @media (max-width: 768px) {
       font-size: calc(#{$mobSize +px} + #{$addMobSize} * ((100vw -320px) / #{$maxWidth}));
    }
-	@media (min-width: 780px){
-      	font-size:calc(#{$mobSize +px} + #{$addSize} * (100vw / #{$maxWidth}));
+   @media (min-width: 768px) {
+      font-size: calc(#{$mobSize +px} + #{$addSize} * (100vw / #{$maxWidth}));
+   }
+   @media (max-width: 450px) {
+      font-size: calc(#{$mobSize +px} + #{$addSize} * (100vw / #{$maxWidth}));
    }
 }

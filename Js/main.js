@@ -1,14 +1,4 @@
 $(function () {
-   
-   function ibg() {
-      $.each($('.ibg'), function (index, val) {
-         if ($(this).find('img').length > 0) {
-            $(this).css('background-image', 'url("' + $(this).find('img').attr('src') + '")');
-         }
-      });
-   }
-   ibg();
-
    function BurgerToggle() {
       let menu = $('.header__menu').removeClass('active');
       let toggle = $('.header__toggle').removeClass('active');
@@ -23,17 +13,25 @@ $(function () {
    function initMap() {
       const Link = $(".text__map");
       const maps = $('#map');
-      Link.on('click', function () {
-         $(maps).toggleClass('active')
-         if (maps.hasClass('active')) {
-            maps.show();
-            const uluru = { lat: 52.0932789, lng: 23.6988248 };
-            const map = new google.maps.Map(
-               document.getElementById('map'), { zoom: 15, center: uluru });
-            const marker = new google.maps.Marker({ position: uluru, map: map });
-         } else {
-            maps.hide();
-         }
+      Link.on('mouseover', function () {
+         maps.show();
+         const uluru = { lat: 52.0932789, lng: 23.6988248 };
+         const map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 15, center: uluru });
+         const marker = new google.maps.Marker({ position: uluru, map: map });
+         $(this).on('click', function () {
+            $(maps).toggleClass('active');
+            if (maps.hasClass('active')) {
+               maps.show();
+            }
+            else {
+               maps.hide();
+            }
+         });
+      });
+      maps.on('mouseleave', function () {
+         $(maps).removeClass('active');
+         maps.hide();
       });
    }
    initMap();
@@ -62,12 +60,12 @@ function Popup() {
       Popup_row.classList.add('active')
       Popup_body.style.visibility = "visible";
       Popup_body.style.opacity = 1;
-   })
+   });
    Service_link.addEventListener('click', () => {
       Popup_row.classList.add('active')
       Popup_body.style.visibility = "visible";
       Popup_body.style.opacity = 1;
-   })
+   });
    Close_btn.addEventListener('click', () => {
       Popup_row.classList.remove('active')
       Popup_body.style.visibility = "hidden";
