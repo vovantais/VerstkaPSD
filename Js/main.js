@@ -72,13 +72,17 @@ function Popup() {
       Popup_body.style.opacity = 0;
    });
    Btn__oder.addEventListener('click', (e) => {
-      e.preventDefault();
-      Popup_row.classList.remove('active')
-      Popup_body.style.visibility = "hidden";
-      Popup_body.style.opacity = 0;
-      Popup_Oder.style.visibility = "visible";
-      Popup_Oder.style.opacity = 1;
-      Popup_OderRow.classList.add('active');
+      const InputCheck1 = document.querySelector('.check1').value;
+      const InputCheck2 = document.querySelector('.check2').value;
+      if (InputCheck1 !== '' && InputCheck2 !== '') {
+         Popup_row.classList.remove('active')
+         Popup_body.style.visibility = "hidden";
+         Popup_body.style.opacity = 0;
+         Popup_Oder.style.visibility = "visible";
+         Popup_Oder.style.opacity = 1;
+         Popup_OderRow.classList.add('active');
+         e.preventDefault();
+      }
    })
    Close_btnOder.addEventListener('click', () => {
       Popup_OderRow.classList.remove('active');

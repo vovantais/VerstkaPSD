@@ -69,9 +69,10 @@
                                     <option>Да</option>
                                     <option>Нет</option>
                                  </select>
-                                 <input type="text" name="Name" placeholder="Ваше имя" required class="form__inp check">
+                                 <input type="text" name="Name" placeholder="Ваше имя" required
+                                    class="form__inp check1">
                                  <input type="tel" name="Number" placeholder="Ваш номер телефона" required
-                                    class="form__inp check">
+                                    class="form__inp check2" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
                                  <div class="form__image">
                                     <div class="form__img"><img src="img/book.png" alt=""></div>
                                  </div>
@@ -156,7 +157,7 @@
                                  <div class="cardClient__image">
                                     <div class="cardClient__imageCard">
                                        <img src="img/Card.png" alt="Card">
-                                       <span><img src="img/fig1.png" alt="fig"></span>
+                                       <span><img src="img/fig1.png" alt="figura"></span>
                                     </div>
                                  </div>
                                  <div class="cardClient__hintImg">
