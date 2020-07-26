@@ -19,7 +19,7 @@
    width: 100%;
    height: auto;
    z-index: 2;
-   background: #eee3de;
+   background: linear-gradient(45deg, rgb(238, 227, 222) 43%, rgb(238, 227, 222) 40%, rgb(246, 226, 216));
    overflow: hidden;
    &__body {
       display: flex;
