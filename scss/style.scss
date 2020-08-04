@@ -477,6 +477,9 @@
       position: relative;
       z-index: 1;
       padding: 0px 0px 60px 0px;
+      transform: translate(0px, 70%);
+      opacity: 0;
+      transition: all 0.8s ease 0s;
       span {
          font-family: $fontMUSEOSANSCYRL_1;
          font-weight: 300;
@@ -488,6 +491,10 @@
          font-weight: 700;
          @include adaptiv-font(48, 30);
          letter-spacing: 1.8px;
+      }
+      &._active {
+         transform: translate(0px, 0px);
+         opacity: 1;
       }
    }
    &__list {
@@ -502,9 +509,28 @@
          background: url(../img/elips.png) left no-repeat;
          padding: 0px 0px 0px 40px;
          margin: 0px 0px 25px 0px;
+         transform: translate(-120%, 0);
+         transition: all 0.3s ease-in 0s;
       }
       li:last-child {
          margin: 0;
+      }
+      &._active li {
+         transform: translate(0px, 0px);
+      }
+      &._active {
+         li {
+            @for $var from 1 to 6 {
+               $delay: $var * 0.4;
+               &:nth-child(#{$var}) {
+                  @if $var == 1 {
+                     transition: transform 0.8s ease 0s;
+                  } @else {
+                     transition: transform 0.8s ease #{$delay + s};
+                  }
+               }
+            }
+         }
       }
    }
    &__link {
